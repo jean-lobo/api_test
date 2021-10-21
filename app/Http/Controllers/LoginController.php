@@ -37,14 +37,18 @@ class LoginController extends Controller
     }
     
  
+
+
+    $token = $user->createToken('token')->plainTextToken;
     
+
+    $response =['user'=>$user,
+
+     'token' => $token];
     
-    $accessToken =  $user->createToken('Auth Token')->accessToken;
-    
-    
-    return response(['access_token' => $accessToken,
-'user' =>$user
-]);
+
+
+return response($response,201);
 }
 
 }
