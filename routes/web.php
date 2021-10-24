@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +20,7 @@ Route::get('/', function () {
 
 
 // Route::get('/home', [HomeController::class, 'home']);
+
+Route::get('file-import-export', [UserController::class, 'fileImportExport']);
+Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');
+Route::get('file-export', [UserController::class, 'fileExport'])->name('file-export');
